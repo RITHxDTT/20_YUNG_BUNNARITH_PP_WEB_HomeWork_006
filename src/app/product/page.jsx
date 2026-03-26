@@ -7,7 +7,7 @@ export default async function Page() {
   const productsArray = data.payload || [];
 
   return (
-    <div className="flex flex-wrap gap-10  border-2 ">
+    <div className="flex flex-wrap gap-10   justify-center">
       {productsArray.map((product) => (
         <Productcomponent key={product.productId} product={product} />
       ))}
