@@ -7,7 +7,7 @@ import getAllCustomer from "../_Service/customer";
 export default async function CustomerPage() {
   const customer = await getAllCustomer();
   return (
-    <div className="p-10 bg-white min-h-screen">
+    <div className="  mt-[-80%] p-10 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex justify-between items-center mb-8">

@@ -8,26 +8,13 @@ import UserCardDetail from './_component/UserCardDetail';
 
 export default function page() {
   return (
-    <div className="flex w-[1600px] h-[1000px] gap-10  justify-center items-center">
-
-
+    <div className="flex mt-[-70%] gap-10 justify-center items-center">
       <Link href="/product"> <ProductHomepageCardComponent /> </Link>
       <Link href="/customer">   <CustomerHomepageCardComponent /> </Link>
-
 
     </div>
 
   )
 
-  // return (
-  //   <div>
-  //     <ProductDetails/>
-  //   </div>
-  // )
 
-  // return(
-  //   <div>
-  //     <UserCardDetail/>
-  //   </div>
-  // )
 }

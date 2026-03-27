@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { Eye, Calendar } from "lucide-react";
+import Link from "next/link";
 
 export const columns = [
   {
@@ -7,12 +8,9 @@ export const columns = [
     accessorFn: row => `${row.firstName} ${row.lastName}`,
     cell: ({ row }) => (
       <div className="py-2">
-    
         <div className="font-bold text-[#1e293b] text-base">
           {row.original.firstName} {row.original.lastName}
         </div>
-
-      
         <div className="text-[11px] text-gray-400 uppercase tracking-tighter">
           ID: {row.original.customerId}
         </div>
@@ -30,7 +28,7 @@ export const columns = [
     ),
   },
   {
-    accessorKey: "moneySpent", 
+    accessorKey: "moneySpent",
     header: "Amount Spent",
     cell: ({ row }) => (
       <div className="font-bold text-[#10b981] text-lg">
@@ -41,10 +39,13 @@ export const columns = [
   {
     id: "actions",
     header: "Action",
-    cell: () => (
-      <button className="border border-gray-300 px-5 py-1.5 rounded-full flex items-center gap-2 text-sm text-[#1e293b] hover:bg-gray-50 transition-all shadow-sm">
+    cell: ({ row }) => ( 
+      <Link
+        href={`/customer/${row.original.customerId}`}
+        className="border border-gray-300 px-5 py-1.5 rounded-full flex items-center gap-2 text-sm text-[#1e293b] hover:bg-gray-50 transition-all shadow-sm"
+      >
         <Eye /> View Profile
-      </button>
+      </Link>
     ),
   },
 ];
