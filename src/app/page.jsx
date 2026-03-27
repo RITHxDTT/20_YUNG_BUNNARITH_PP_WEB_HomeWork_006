@@ -3,6 +3,8 @@ import CustomerHomepageCardComponent from './_component/CustomerHomepageCardComp
 import ProductHomepageCardComponent from './_component/ProductHomepageCardComponent'
 import { AppSidebar } from '@/components/app-sidebar'
 import Link from "next/link";
+import ProductDetails from './_component/ProductDetails';
+import UserCardDetail from './_component/UserCardDetail';
 
 export default function page() {
   return (
@@ -10,10 +12,22 @@ export default function page() {
 
 
       <Link href="/product"> <ProductHomepageCardComponent /> </Link>
-      <Link href="/product">   <CustomerHomepageCardComponent /> </Link>
+      <Link href="/customer">   <CustomerHomepageCardComponent /> </Link>
 
 
     </div>
 
   )
+
+  // return (
+  //   <div>
+  //     <ProductDetails/>
+  //   </div>
+  // )
+
+  // return(
+  //   <div>
+  //     <UserCardDetail/>
+  //   </div>
+  // )
 }

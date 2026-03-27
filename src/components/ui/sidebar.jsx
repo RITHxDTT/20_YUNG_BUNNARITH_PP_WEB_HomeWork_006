@@ -3,31 +3,31 @@ import * as React from "react"
 import { cva } from "class-variance-authority";
 import { Slot } from "radix-ui"
 
-import { useIsMobile } from "../../hooks/use-mobile"
-import { cn } from "../../lib/utils"
-import { Button } from "./button"
-import { Input } from "./input"
-import { Separator } from "./separator"
+import { useIsMobile } from "@/hooks/use-mobile"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "./sheet"
-import { Skeleton } from "./skeleton"
+} from "@/components/ui/sheet"
+import { Skeleton } from "@/components/ui/skeleton"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "./tooltip"
-import { PanelLeft } from "lucide-react"
+} from "@/components/ui/tooltip"
+import { PanelLeftIcon } from "lucide-react"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
-const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
+const SIDEBAR_COOKIE_MAX_AGE = 80 * 80 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"
-const SIDEBAR_WIDTH_MOBILE = "58rem"
-const SIDEBAR_WIDTH_ICON = "5rem"
+const SIDEBAR_WIDTH_MOBILE = "18rem"
+const SIDEBAR_WIDTH_ICON = "100px"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
 const SidebarContext = React.createContext(null)
@@ -37,8 +37,10 @@ function useSidebar() {
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.")
   }
+
   return context
 }
+
 function SidebarProvider({
   defaultOpen = true,
   open: openProp,
@@ -47,9 +49,10 @@ function SidebarProvider({
   style,
   children,
   ...props
-}){
+}) {
   const isMobile = useIsMobile()
   const [openMobile, setOpenMobile] = React.useState(false)
+
   // This is the internal state of the sidebar.
   // We use openProp and setOpenProp for control from outside the component.
   const [_open, _setOpen] = React.useState(defaultOpen)
@@ -61,13 +64,16 @@ function SidebarProvider({
     } else {
       _setOpen(openState)
     }
+
     // This sets the cookie to keep the sidebar state.
     document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
   }, [setOpenProp, open])
+
   // Helper to toggle the sidebar.
   const toggleSidebar = React.useCallback(() => {
     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
   }, [isMobile, setOpen, setOpenMobile])
+
   // Adds a keyboard shortcut to toggle the sidebar.
   React.useEffect(() => {
     const handleKeyDown = (event) => {
@@ -87,6 +93,7 @@ function SidebarProvider({
   // We add a state so that we can do data-state="expanded" or "collapsed".
   // This makes it easier to style the sidebar with Tailwind classes.
   const state = open ? "expanded" : "collapsed"
+
   const contextValue = React.useMemo(() => ({
     state,
     open,
@@ -230,7 +237,7 @@ function SidebarTrigger({
         toggleSidebar()
       }}
       {...props}>
-      <PanelLeft />
+      <PanelLeftIcon />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
@@ -457,6 +464,7 @@ const sidebarMenuButtonVariants = cva(
     },
   }
 )
+
 function SidebarMenuButton({
   asChild = false,
   isActive = false,
@@ -478,6 +486,7 @@ function SidebarMenuButton({
       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
       {...props} />
   )
+
   if (!tooltip) {
     return button
   }
