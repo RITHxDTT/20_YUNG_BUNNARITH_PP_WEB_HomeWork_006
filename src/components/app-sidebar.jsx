@@ -13,7 +13,7 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 export function AppSidebar({ className }) {
   return (
     <div className={className}>
-      <Sidebar className="pl-[15px] flex flex-col mt-[10px] " collapsible='icon'>
+      <Sidebar className="pl-[15px] flex flex-col mt-[10px] " >
       <SidebarHeader >
         <div className="flex w-[100%] gap-5 ">
           <div className="w-[40px] h-[40px] bg-[#8ff5f8] rounded-[10px] flex justify-center items-center text-white">

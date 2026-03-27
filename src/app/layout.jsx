@@ -1,6 +1,5 @@
-import { SidebarProvider, SidebarTrigger } from "../components/ui/sidebar"
-import { AppSidebar } from "../components/app-sidebar"
-import { TooltipProvider } from "../components/ui/tooltip"
+import {  SidebarTrigger, SidebarProvider } from "../components/ui/sidebar"
+import { AppSidebar,  } from "../components/app-sidebar"
 import "./globals.css"
 import {Noto_Sans} from "next/font/google"
 import TopBar from "./_component/TopBar"
@@ -15,7 +14,7 @@ export default function Layout({ children }) {
     <html lang="en">
       <body className={notoSan.className}>
         <TopBar/> 
-        <TooltipProvider>
+      
           <SidebarProvider>
             <AppSidebar  />
             <main>
@@ -23,7 +22,7 @@ export default function Layout({ children }) {
               {children}
             </main>
           </SidebarProvider>
-        </TooltipProvider>
+     
       </body>
     </html>
   )

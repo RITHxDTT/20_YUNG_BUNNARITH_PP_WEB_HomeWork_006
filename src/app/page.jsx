@@ -3,6 +3,7 @@ import CustomerHomepageCardComponent from './_component/CustomerHomepageCardComp
 import ProductHomepageCardComponent from './_component/ProductHomepageCardComponent'
 import { AppSidebar } from '@/components/app-sidebar'
 import Link from "next/link";
+import ProductDetails from './_component/ProductDetails';
 
 export default function page() {
   return (
@@ -16,4 +17,10 @@ export default function page() {
     </div>
 
   )
+
+  // return (
+  //   <div>
+  //     <ProductDetails/>
+  //   </div>
+  // )
 }

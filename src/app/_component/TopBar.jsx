@@ -5,7 +5,7 @@ import { PopoverBasic } from './PopoverBasic'
 
 export default function TopBar() {
     return (
-        <div className='w-full  justify-end h-[80px] flex mt-[15px] pe-[15px] '>
+        <div className='w-full  justify-end h-[80px] flex mt-[15px] pe-[15px] border-b-2'>
             <div className='flex justify-between items-center  w-[400px] '>
                 {/* icon */}
                 <div className='flex w-[120px] justify-around '>

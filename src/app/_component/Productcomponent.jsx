@@ -5,7 +5,7 @@ export default function Productcomponent({product}) {
     return (
         <div className="   w-[350px] h-[600px] flex flex-col rounded-2xl border-1 border-[gray] justify-between">
             {/* img */}
-            <div className="w-[100%] h-[300px] rounded-t-2xl flex flex-col bg-[black] bg-cover bg-center">
+            <div className="w-[100%] h-[300px] rounded-t-2xl flex flex-col bg-[url('/computer.jpg')]  bg-cover bg-center">
                 <div className='flex flex-col p-[15px] gap-4'>
                     <div className='text-[white] font-bold '>
                         NEW
@@ -29,7 +29,7 @@ export default function Productcomponent({product}) {
                 </div>
 
                 <div>
-                   {product.title}
+                   {product.description}
                 </div>
 
                 <div className=' hover:cursor-pointer w-[100%] text-white font-bold h-[45px] flex justify-center items-center bg-[#0a023d] rounded-2xl'>
