@@ -1,43 +1,59 @@
-import React from 'react'
-import { Star, MoveUpRight } from 'lucide-react'
+"use client"; // important for Next.js client-side interactivity
+import React, { useState } from 'react';
+import { Star, MoveUpRight } from 'lucide-react';
+import ProductDetails from './ProductDetails';
+import Link from 'next/link';
 
-export default function Productcomponent({product}) {
+export default function Productcomponent({ product }) {
+    console.log(product);
+    const [showDetails, setShowDetails] = useState(false);
+
+
+    const clickedProduct = () => {
+        console.log("hello");
+        setShowDetails(true);
+    };
+
+    const backToCard = () => {
+        setShowDetails(false);
+    };
+
+    if (showDetails) {
+        return <ProductDetails product={product} back={backToCard} />;
+    }
+
     return (
-        <div className="   w-[350px] h-[600px] flex flex-col rounded-2xl border-1 border-[gray] justify-between">
+        <div className="w-[350px] h-[600px] flex flex-col rounded-2xl border border-gray-300 justify-between">
             {/* img */}
-            <div className="w-[100%] h-[300px] rounded-t-2xl flex flex-col bg-[url('/computer.jpg')]  bg-cover bg-center">
+            <div className="w-[100%] h-[300px] rounded-t-2xl flex flex-col bg-[url('/head.jpg')] bg-cover bg-center">
                 <div className='flex flex-col p-[15px] gap-4'>
-                    <div className='text-[white] font-bold '>
-                        NEW
-                    </div>
+                    <div className='text-[white] font-bold'>NEW</div>
                     <div className='flex gap-2 bg-[white] w-[70px] justify-center items-center rounded-[15px] p-[5px]'>
-                        <Star className='text-[yellow] fill-[yellow]' /> <p className='text-[gray] font-bold'>4.5</p>
+                        <Star className='text-[yellow] fill-[yellow]' />
+                        <p className='text-[gray] font-bold'>4.5</p>
                     </div>
                 </div>
             </div>
 
             <div className='p-[15px] flex flex-col gap-3'>
-                <div className='w-[100%] flex justify-between '>
-                    <p className='text-[blue] font-bold'> FLAGSHIP SERIES</p>
-                    <p className='font-bold text-[18px]'>
-                        ${product.price}
-                    </p>
-                </div>
-                {/* prod name */}
-                <div className='font-bold text-[23px]'>
-                    {product.name}
+                <div className='w-[100%] flex justify-between'>
+                    <p className='text-[blue] font-bold'>FLAGSHIP SERIES</p>
+                    <p className='font-bold text-[18px]'>${product.price}</p>
                 </div>
 
-                <div>
-                   {product.description}
-                </div>
+    
+                <div className='font-bold text-[23px]'>{product.name}</div>
 
-                <div className=' hover:cursor-pointer w-[100%] text-white font-bold h-[45px] flex justify-center items-center bg-[#0a023d] rounded-2xl'>
-                    <p className='flex items-center justify-center gap-3'>
+
+                <div>{product.description}</div>
+
+
+                <div className='hover:cursor-pointer w-[100%] text-white font-bold h-[45px] flex justify-center items-center bg-[#0a023d] rounded-2xl'>
+                    <Link href=" #" className='flex items-center justify-center gap-3'>
                         View Product <MoveUpRight />
-                    </p>
+                    </Link>
                 </div>
             </div>
         </div>
-    )
+    );
 }
