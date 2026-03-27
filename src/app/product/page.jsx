@@ -6,7 +6,7 @@ export default async function Page() {
   const products = await getAllProduct();
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="mt-[-75%] flex flex-col gap-3">
       <div className="flex w-full pl-[25px] items-center justify-between">
         <p className="text-[30px] text-[#010151] font-extrabold">
           List of All Product

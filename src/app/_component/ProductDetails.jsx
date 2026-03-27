@@ -1,13 +1,16 @@
 "use client";
 import React from 'react';
 import { Heart, Tag, ArrowLeft, GitFork, Plus, Minus, ShoppingCart } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProductDetails({ product, back }) {
+console.log("ProductDetails received:", product);
+
   return (
-    <div className='flex justify-center items-center w-[1500px] h-[500px]'>
-      <div className='flex justify-between w-[1000px] h-[700px] bg-[#f1efef] shadow-[1px_1px_3px_0.2px] rounded-2xl'>
+    <div className=' flex justify-center items-center w-full  '>
+      <div className='mt-[10%] flex justify-between w-[1000px]  bg-[#f1efef] shadow-[1px_1px_3px_0.2px] rounded-2xl'>
         
-        {/* img side */}
+
         <div className='rounded-l-2xl w-[450px] h-full flex flex-col p-[20px] bg-[#ebe8e8]'>
           <div className='flex justify-between'>
             <div className='flex flex-col gap-3'>
@@ -22,15 +25,15 @@ export default function ProductDetails({ product, back }) {
             </div>
           </div>
           <div className='mt-[20%]'>
-            <img src="./computer.jpg" alt={product.name} className='rounded-2xl shadow-2xl' />
+            <img src="/computer.jpg" alt="ot man pic" className='rounded-2xl shadow-2xl' />
           </div>
         </div>
 
         {/* product info side */}
         <div className='p-[55px] w-[550px] rounded-r-2xl flex flex-col bg-[white]'>
-          <div className='flex hover:text-[gray] hover:cursor-pointer' onClick={back}>
+          <Link href="/product" className='flex hover:text-[gray] hover:cursor-pointer' onClick={back}>
             <ArrowLeft /> <p>BACK TO PRODUCT</p>
-          </div>
+          </Link>
 
           <div className='flex flex-col gap-1'>
             <p className='text-[#32ffff] font-extrabold'>PREMIUM EXPERIENCE</p>
